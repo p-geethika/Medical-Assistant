@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Meta Data-->
+    <%- include('partial/title.ejs'); %> 
+
+    <% if (data.NODE_ENV == 'production') { %>
+      <!-- Production Stylesheets -->
+      <link rel="stylesheet" href="assets/production/css/about.min.css">
+
+    <% }else { %>
+      <!-- Development Stylesheets -->
+      <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="assets/lib/css/style.css">
+      <link rel="stylesheet" href="assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/header.css">
+      
+    <% } %>
+  </head>
+
+  <body onLoad="typeWriter()">
+    <!--Header-->
+    <%- include('partial/header.ejs', {data: data }); %>
+
+    <!--FAQ Start-->
+    <div class="faq-area pt_60 pb_90">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="faq-group headstyle mt-30">
+              <div id="accordion">
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading1">
+                    <button class="faq-button " data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+                      aria-controls="collapse1"><i class="fa fa-caret-right"></i>What services does MedBuddy provide?</button>
+                  </div>
+
+                  <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>MedBuddy offers a range of healthcare services, including telemedicine consultations, prescription management, health check-ups, diagnostic tests, and health tracking tools to ensure seamless medical support.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading2">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse2"
+                      aria-expanded="true" aria-controls="collapse2"><i class="fa fa-caret-right"></i>How can I book an appointment?</button>
+                  </div>
+
+                  <div id="collapse2" class="collapse " aria-labelledby="heading2" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>You can easily book an appointment by visiting the MedBuddy app or website. Choose the 'Book Appointment' option, select your preferred doctor or specialist, and pick a convenient time slot for your consultation.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading3">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse3"
+                      aria-expanded="true" aria-controls="collapse3"><i class="fa fa-caret-right"></i>Is my data safe with MedBuddy?</button>
+                  </div>
+
+                  <div id="collapse3" class="collapse " aria-labelledby="heading3" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>Yes, MedBuddy ensures that your medical records and personal data are encrypted and stored securely. We adhere to industry-standard data protection practices to ensure the privacy and security of all user data.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading4">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse4"
+                      aria-expanded="true" aria-controls="collapse4"><i class="fa fa-caret-right"></i>Can I get an online prescription after a consultation?</button>
+                  </div>
+
+                  <div id="collapse4" class="collapse " aria-labelledby="heading4" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>Yes, after your consultation, the doctor can provide you with a digital prescription, which can be used to purchase medicines from any pharmacy or online through MedBuddy’s platform.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading5">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse5"
+                      aria-expanded="true" aria-controls="collapse5"><i class="fa fa-caret-right"></i>What payment methods are accepted on MedBuddy?</button>
+                  </div>
+
+                  <div id="collapse5" class="collapse " aria-labelledby="heading5" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>MedBuddy accepts a variety of payment methods, including credit/debit cards, net banking, UPI, and popular digital wallets. All payments are secure and processed through trusted gateways.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading6">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse6"
+                      aria-expanded="true" aria-controls="collapse6"><i class="fa fa-caret-right"></i>How do I access my medical records?</button>
+                  </div>
+
+                  <div id="collapse6" class="collapse " aria-labelledby="heading6" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>All your medical records are stored in your MedBuddy account. You can access them at any time by logging in, going to your profile, and selecting 'My Medical Records' from the dashboard.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--FAQ End-->
+
+    <!--Footer-->
+    <%- include('partial/footer.ejs'); %>
+    
+    <script>
+      var i = 0;
+      var txt = 'WELCOME TO MEDBUDDY';
+      var speed = 60;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typeit").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+
+      <!-- JavaScript -->
+    <script defer src="assets/lib/js/jquery-3.4.1.min.js"></script>
+    <script defer src="assets/lib/js/popper.min.js"></script>
+    <script defer src="assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/lib/js/all.min.js"></script>
+    <script defer src="assets/lib/js/select2.full.min.js"></script>
+    <script defer src="assets/js/about.js"></script>
+    
+  </body>
+</html>
